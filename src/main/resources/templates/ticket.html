@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/view.css}">
+    <script type="text/javascript" th:src="@{/js/application.js}"></script>
+    <title>Verizon</title>
+</head>
+<body>
+<div th:if="${exception != null}">
+    <h3 style="color:red"> <spa th:text="${exception.msg}"/> </h3>
+</div>
+<form th:action="@{booking}" th:object="${passanger}" method="POST">
+    <table>
+        <tr>
+            <td><label>Train Name :</label></td>
+            <td><input type="text" th:field="*{trainName}" name="trainName" id="trainName"/></td>
+        </tr>
+        <tr>
+            <td><label>From :</label></td>
+            <td><input type="text" th:field="*{source}"  name="source" id="source"/></td>
+        </tr>
+        <tr>
+            <td><label>To :</label></td>
+            <td><input type="text" th:field="*{destination}" name="destination;" id="destination;"/></td>
+        </tr>
+        <tr>
+            <td><label>Price :</label></td>
+            <td><input type="number" th:field="*{price}" name="price" id="price"/></td>
+        </tr>
+        <tr>
+            <td><label>JourneyDate :</label></td>
+            <td><input type="text" th:field="*{journeyDate}" name="journeyDate" id="journeyDate"/></td>
+        </tr>
+        <tr>
+            <td><label>Duration :</label></td>
+            <td><input type="text" th:field="*{duration}" name="duration" id="duration"/></td>
+        </tr>
+        <tr>
+            <td><label>Passanger Name :</label></td>
+            <td><input type="text" th:field="*{passangerName}" name="passangerName" id="passangerName"/></td>
+        </tr>
+        <tr>
+            <td><label>Mobile Number :</label></td>
+            <td><input type="number" th:field="*{phNo}" name="phNo" id="phNo"/></td>
+        </tr>
+        <tr>
+            <td><label>Age :</label></td>
+            <td><input type="text" th:field="*{age}" name="age" id="age"/></td>
+        </tr>
+        <tr>
+            <td><label>Gender :</label></td>
+            <td><input type="text" th:field="*{gender}" name="gender" id="gender"/></td>
+        </tr>
+        <tr>
+            <td><input id="button" type="submit" value="Book"></td>
+            <td><button><a th:href="${contextPath}">View Ticket</a></button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

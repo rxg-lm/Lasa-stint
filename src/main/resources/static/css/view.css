@@ -1,0 +1,28 @@
+table {
+  margin:50px 0 0 400px;
+  color: maroon;
+  background-color: powderblue;
+}
+a{
+  text-decoration: none !important;
+  color: black;
+}
+button{
+  margin:20px 0 0 400px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: #f0f2f1;
+  background-color: #026312;
+}
+#button{
+  border-radius: 20px;
+  font-size: 16px;
+  color: #f0f2f1;
+  background-color: #026312;
+}
+#blink {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: powderblue;
+}

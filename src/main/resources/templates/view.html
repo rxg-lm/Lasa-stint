@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" th:href="@{/css/view.css}">
+    <script type="text/javascript" th:src="@{/js/application.js}"></script>-->
+    <title>LASAn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:if="${display}" class="table-responsive container" >
+    <form th:action="@{view}" method="POST">
+        <table class="table form-group">
+            <tr>
+                <td><label>Enter Ticket No: </label></td>
+                <td><input type="text" name="ticketId"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input id="button" type="submit" value="submit" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:if="${dataCheck != null}" class="table table-hover table-bordered container">
+    <div>
+        <table class="table form-group">
+            <tr class="active">
+                <thead>
+                <th>SNO</th>
+                <th>Ticket No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Journey Date</th>
+                <th>Price</th>
+                <th>Passanger Name</th>
+                <th>Status</th>
+                </thead>
+            </tr>
+            <tr th:if="${passangers != null}" th:each="passanger,index:${passangers}">
+                <td th:text="${index.count}"></td>
+                <td th:text="${passanger.ticketNo}"></td>
+                <td th:text="${passanger.source}"></td>
+                <td th:text="${passanger.destination}"></td>
+                <td th:text="${passanger.journeyDate}"></td>
+                <td th:text="${passanger.price}"></td>
+                <td th:text="${passanger.passangerName}"></td>
+                <td th:text="${passanger.status}"></td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-left:30%;color:red" th:if="${passangers == null}">
+        No Records Found!..
+    </div>
+</div>
+<div>
+    <div><a th:href="${contextPath}" class="btn btn-success">click here to book ticket</a></div>
+    <div th:if="${viewTicketStatus}"><a th:href="${contextPathView}" class="btn btn-success">click here to view ticket status</a></div>
+    <div th:unless="${viewTicketStatus}"><a th:href="${contextPathViewAll}" class="btn btn-success">click here to view all tickets </a></div>
+</div>
+</body>
+</html>

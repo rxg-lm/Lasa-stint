@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/view.css}">
+    <script type="text/javascript" th:src="@{/js/application.js}"></script>
+    <title>LASAn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:if="${msg == null}">
+    <div>
+        <h2> welcome to LASA application Mr/Miss <span th:text="${session.username}"/></h2>
+    </div>
+    <div>
+        <button><a href="logout">Logout</a></button>
+    </div>
+</div>
+<div th:if="${msg != null}">
+    <h2><span th:text="${msg}"/></h2>
+  <div>
+    <button><a th:href="${contextPath}">click here to view ticket information</a></button>
+  </div>
+</div>
+</body>
+</html>

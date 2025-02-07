@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/view.css}">
+    <script type="text/javascript" th:src="@{/js/application.js}"></script>
+    <title>Verizon</title>
+</head>
+<body>
+   <h2 style="color:maroon; margin-left:400px;" th:text="${error}"/>
+   <h2><button><a th:href="${session.contextPath}">HOME</a></button></h2>
+   <form th:action="@{login}"  method="POST">
+       <table>
+           <tr>
+               <td><label>UserName :</label></td>
+               <td><input type="text"  name="username" id="username"/></td>
+           </tr>
+           <tr>
+               <td><label>Password :</label></td>
+               <td><input type="text"  name="password" id="password"/></td>
+           </tr>
+           <tr>
+               <td><input id="button" type="submit" value="Login"></td>
+               <td><button><a href="register">Register</a></button></td>
+           <tr>
+       </table>
+   </form>
+</body>
+</html>
